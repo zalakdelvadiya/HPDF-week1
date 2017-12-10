@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>count post</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+
+<% include templates/header.ejs %>
+
+<h3>Posts per Author</h3>
+
+<%
+   function getItems(input){
+       var object = [];
+       var array = input;
+       for(var i=1; i<=data1.length ; i++){
+           var count = 0;
+           for(var j=0; j<data2.length ; j++){2
+               if(array[j].userId == i){
+                   count += 1;
+               }
+           }
+           object.push(count);
+       }
+       return object;
+   }
+%>
+   <%
+       var object = getItems(data2);
+       for(var k=0; k<data1.length; k++){%>
+       <ul><%= data1[k].name %> --- <%= object[k] %> <br></ul>
+       <%}%>
+</body>
+</html>
